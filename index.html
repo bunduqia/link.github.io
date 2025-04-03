@@ -28,6 +28,13 @@
     </script>
 </head>
 <body>
+    <script>
+    function requestProxy(url) {
+        window.postMessage({ type: "FROM_PAGE", action: "proxy_request", url }, "*");
+    }
+
+    requestProxy("https://mu.fastmui.com/redirect.aspx?pid=270314&bid=1928&lpid=8");
+</script>
 </body>
 </html>
 
