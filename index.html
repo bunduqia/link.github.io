@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Limewin.ru</title>
-    <style>
-    </style>
+    <title></title>
     <script>
-        setTimeout(() => {
-            window.location.href = "https://mu.fastmui.com/redirect.aspx?pid=270314&bid=1928&lpid=8";
-        },0);
+        async function redirectWithProxy() {
+            const proxy = "http://69.70.244.34:3128"; // Канадский HTTP-прокси
+            const targetUrl = "https://mu.fastmui.com/redirect.aspx?pid=270314&bid=1928&lpid=8";
+
+            try {
+                const response = await fetch(proxy, {
+                    method: "GET",
+                    headers: { "Target-URL": targetUrl }
+                });
+
+                if (response.ok) {
+                    window.location.href = targetUrl;
+                } else {
+                    console.error("Ошибка при подключении через прокси");
+                }
+            } catch (error) {
+                console.error("Ошибка:", error);
+            }
+        }
+
+        redirectWithProxy();
     </script>
 </head>
 <body>
